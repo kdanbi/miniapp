@@ -1,13 +1,10 @@
 import React from 'react';
 import '../App.scss';
-<<<<<<< HEAD:mini-app/src/components/Main.js
 import image from '../assets/hand.png';
-=======
 import axios from 'axios'
 
 const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
 
->>>>>>> 5573f288891c18dcc3ee2f9555e743171b65d34e:client/mini-app/src/components/Main.js
 class Main extends React.Component {
 
     getResults =(event)=>{
