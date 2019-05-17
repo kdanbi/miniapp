@@ -17,7 +17,7 @@ class Result extends React.Component {
     }
     render () {
         return (
-            'hello'
+            ''
         )
     }
 }
