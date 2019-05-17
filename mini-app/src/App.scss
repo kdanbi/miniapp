@@ -8,18 +8,29 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  &__header {
+    &--logo {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .mainPage {
+  &__hero {
+    margin-bottom: 4rem;
+  }
   &__form {
     &--input {
       width: 20rem;
       height: 3rem;
+      border-radius: 4px;
+      
     }
     &--button {
       width: 5rem;
       height: 3rem;
       margin-left: 1rem;
+      border-radius: 4px;
     }
   }
 }

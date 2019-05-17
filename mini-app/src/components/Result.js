@@ -7,7 +7,7 @@ Places.APIkeY = "AIzaSyC2DtGQafS7ey_uIJHawxlOx1QrsGF55qs";
 class Result extends React.Component {
     render () {
         return (
-            'hello'
+            ''
         )
     }
 }
