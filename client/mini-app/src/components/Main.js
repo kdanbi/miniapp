@@ -6,13 +6,11 @@ import axios from 'axios'
 const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
 
 class Main extends React.Component {
-
     getResults =(event)=>{
         event.preventDefault();
         axios.get(`http://localhost:8080/`)
             .then(result => console.log(result)
             )
-        
     }
     render () {
         return (
@@ -26,5 +24,4 @@ class Main extends React.Component {
         )
     }
 }
-
 export default Main;
