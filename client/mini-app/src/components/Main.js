@@ -8,9 +8,7 @@ class Main extends React.Component {
 
     getResults =(event)=>{
         event.preventDefault();
-        const location = event.target.address.value;
-
-        axios.get(`${baseUrl}location=${location}&rankby=distance&type=restaurant&key=AIzaSyC2DtGQafS7ey_uIJHawxlOx1QrsGF55qs`)
+        axios.get(`http://localhost:8080/`)
             .then(result => console.log(result)
             )
         
