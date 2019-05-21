@@ -6,8 +6,12 @@ import axios from 'axios'
 class Main extends React.Component {
 
     state = {
-        location: ''
+        location: '',
+        listOfRubs: [],
+        display: false
     }
+
+    locationField = React.createRef();
 
     componentDidMount(){
         navigator.geolocation.getCurrentPosition(
@@ -24,27 +28,34 @@ class Main extends React.Component {
         event.preventDefault();
 
         axios.post(`http://localhost:8080`, {location: this.state.location})
-            .then(result => console.log(result.data)
+            .then(result => this.setState({listOfRubs: result.data})
             )
+
+        this.locationField.current.address.value = this.state.location;
+        
     }
 
-    getLocation=()=>{
-        navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                alert('lat: ' + position.coords.latitude + ' longitude: ' + position.coords.longitude)
-            }
-        );
+    displayResult=()=>{
+        this.setState({display: true})
     }
 
     render () {
         return (
             <section className="mainPage">
                 <h1 className="mainPage__hero">Only if you have a date</h1>
-                <form className="mainPage__form" onSubmit={this.getResults}>
-                    <input className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
+                <form ref={this.locationField} className="mainPage__form" onSubmit={this.getResults}>
+                    <input  className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
                     <button className="mainPage__form--button" type="submit" name="button"><img src={image} alt="hand"/>RUB</button>
                 </form>
-                <button onClick={this.getLocation}>Get Location</button>
+                {this.state.listOfRubs.length > 0? (<button onClick={this.displayResult}>View Result</button>) : null}
+                {this.state.display === false ? null : this.state.listOfRubs.map(item => {return (
+                    <div>
+                        <p>{item.name}</p>
+                        {(item.price_level) ? <p>{`price level: ${item.price_level}`}</p> : <p>price level unavailable</p>}
+                        {(item.rating) ? <p>{`rating: ${item.rating}`}</p> : <p>rating unavailable</p>}
+                        <p>{item.vicinity}</p>
+                    </div>
+                )})}
             </section>
         )
     }
