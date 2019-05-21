@@ -16,4 +16,8 @@ app.post('/', (req, res) => {
     .then(result => res.json((result.data.results)))
 })
 
+app.get('/', (req, res) => {
+    res.send('this is a test message');
+})
+
 app.listen(8080, console.log('server listening on 8080'));
