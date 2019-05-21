@@ -8,18 +8,12 @@ export default class Home extends Component{
     }
 
     componentDidMount(){
-        navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                this.setState({
-                    location: `${position.coords.latitude}, ${position.coords.longitude}`
-                })
-            }
-        )
+        
     }
 
     render(){
         return (
-            <Main locationValue={this.state.location}/>
+            <Main />
         )
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../App.scss';
 import image from '../assets/hand.png';
 import axios from 'axios'
@@ -47,15 +48,7 @@ class Main extends React.Component {
                     <input  className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
                     <button className="mainPage__form--button" type="submit" name="button"><img src={image} alt="hand"/>RUB</button>
                 </form>
-                {this.state.listOfRubs.length > 0? (<button onClick={this.displayResult}>View Result</button>) : null}
-                {this.state.display === false ? null : this.state.listOfRubs.map(item => {return (
-                    <div>
-                        <p>{item.name}</p>
-                        {(item.price_level) ? <p>{`price level: ${item.price_level}`}</p> : <p>price level unavailable</p>}
-                        {(item.rating) ? <p>{`rating: ${item.rating}`}</p> : <p>rating unavailable</p>}
-                        <p>{item.vicinity}</p>
-                    </div>
-                )})}
+                {this.state.listOfRubs.length > 0? (<Link to={{"pathname":"/results", state:{result:this.state.listOfRubs}}}><button onClick={this.displayResult}>View Result</button></Link>) : null}
             </section>
         )
     }

@@ -1,25 +1,25 @@
-//import App from '../App';
 import React from 'react';
-import Places from "google-places-web";
-import axios from 'axios'; 
-Places.APIkeY = "AIzaSyC2DtGQafS7ey_uIJHawxlOx1QrsGF55qs";
-//Places.debug = __DEV__; //boolean;
+import './Result.scss'
 
-class Result extends React.Component {
-    componentDidMount () {
-        axios.get("")
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }
-    render () {
-        return (
-            ''
-        )
-    }
+const Result = (props) => {
+    const result = props.result;
+
+    return(
+        <>
+            {result.map(item=>{
+                return(
+                    <>
+                        <div className="result__card">
+                            <p>{item.name}</p>
+                            {(item.price_level) ? <p>{`price level: ${item.price_level}`}</p> : <p>price level unavailable</p>}
+                            {(item.rating) ? <p>{`rating: ${item.rating}`}</p> : <p>rating unavailable</p>}
+                            <p>{item.vicinity}</p>
+                        </div>
+                    </>
+                )
+            })}
+        </>
+    )
 }
 
 export default Result;
