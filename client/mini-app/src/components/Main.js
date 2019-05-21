@@ -14,12 +14,19 @@ class Main extends React.Component {
     locationField = React.createRef();
 
     componentDidMount(){
-        this.setState({location: this.props.locationValue})
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                
+                this.setState({
+                    location: `${position.coords.latitude}, ${position.coords.longitude}`
+                })
+            }
+        )
     }
 
     getResults =(event)=>{
         event.preventDefault();
-
+    
         axios.post(`http://localhost:8080`, {location: this.state.location})
             .then(result => this.setState({listOfRubs: result.data})
             )
