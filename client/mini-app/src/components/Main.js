@@ -21,13 +21,12 @@ class Main extends React.Component {
                 })
             }
         )
-
     }
 
     getResults =(event)=>{
         event.preventDefault();
 
-        axios.post(`http://localhost:8080`, {location: this.state.location})
+        axios.post(`localhost:8080`, {location: this.state.location})
             .then(result => this.setState({listOfRubs: result.data})
             )
 
