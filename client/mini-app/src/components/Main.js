@@ -3,15 +3,39 @@ import '../App.scss';
 import image from '../assets/hand.png';
 import axios from 'axios'
 
-const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
-
 class Main extends React.Component {
+
+    state = {
+        location: ''
+    }
+
+    componentDidMount(){
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                this.setState({
+                    location: `${position.coords.latitude}, ${position.coords.longitude}`
+                })
+            }
+        )
+
+    }
+
     getResults =(event)=>{
         event.preventDefault();
-        axios.get(`http://localhost:8080/`)
-            .then(result => console.log(result)
+
+        axios.post(`http://localhost:8080`, {location: this.state.location})
+            .then(result => console.log(result.data)
             )
     }
+
+    getLocation=()=>{
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                alert('lat: ' + position.coords.latitude + ' longitude: ' + position.coords.longitude)
+            }
+        );
+    }
+
     render () {
         return (
             <section className="mainPage">
@@ -20,6 +44,7 @@ class Main extends React.Component {
                     <input className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
                     <button className="mainPage__form--button" type="submit" name="button"><img src={image} alt="hand"/>RUB</button>
                 </form>
+                <button onClick={this.getLocation}>Get Location</button>
             </section>
         )
     }
