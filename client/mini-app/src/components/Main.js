@@ -14,13 +14,7 @@ class Main extends React.Component {
     locationField = React.createRef();
 
     componentDidMount(){
-        navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                this.setState({
-                    location: `${position.coords.latitude}, ${position.coords.longitude}`
-                })
-            }
-        )
+        this.setState({location: this.props.locationValue})
     }
 
     getResults =(event)=>{
