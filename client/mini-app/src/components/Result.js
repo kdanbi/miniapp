@@ -5,20 +5,7 @@ const Result = (props) => {
     const result = props.result;
 
     return(
-        <>
-            <div>
-                <input type="radio" id="dewey" name="drone" value="dewey" />
-                <label for="dewey">fuck</label>
-            </div>
-            <div>
-                <input type="radio" id="dewey" name="drone" value="dewey" />
-                <label for="dewey">this</label>
-            </div>
-            <div>
-                <input type="radio" id="dewey" name="drone" value="dewey" />
-                <label for="dewey">shit</label>
-            </div>
-            
+        <>  
             {result.map(item=>{
                 return(
                     <>
