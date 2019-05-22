@@ -1,46 +1,58 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Result.scss'
+import {Link} from 'react-router-dom';
 
-const Result = (props) => {
-    const result = props.result;
+class Result extends Component {
+    state={
+        originalArray: [],
+        filteredArray: [],
+        stateSet: false
+    }
 
-    return(
-        <>  
-        <fieldset class="radiogroup"> 
-            <legend>Price Level</legend> 
-            <ul class="radio"> 
-                <li><input type="radio" name="crust" id="crust1" value="deep" /><label for="crust1">Deep dish</label></li> 
-                <li><input type="radio" name="crust" id="crust2" value="thick" /><label for="crust2">Thick</label></li> 
-                <li><input type="radio" name="crust" id="crust3" value="hand" /><label for="crust3">Hand thrown</label></li> 
-                <li><input type="radio" name="crust" id="crust4" value="thin" /><label for="crust4">Thin</label></li> 
-            </ul> 
-        </fieldset> 
 
-        <fieldset class="radiogroup"> 
-            <legend>Rating</legend> 
-            <ul class="radio"> 
-                <li><input type="radio" name="crust" id="crust1" value="deep" /><label for="crust1">Deep dish</label></li> 
-                <li><input type="radio" name="crust" id="crust2" value="thick" /><label for="crust2">Thick</label></li> 
-                <li><input type="radio" name="crust" id="crust3" value="hand" /><label for="crust3">Hand thrown</label></li> 
-                <li><input type="radio" name="crust" id="crust4" value="thin" /><label for="crust4">Thin</label></li> 
-            </ul> 
-        </fieldset> 
+    filterForm = React.createRef();
 
-            {result.map(item=>{
+    loadResult=()=>{
+        this.setState({originalArray: this.props.result});
+    }
+
+    filterResult =(event)=>{
+        event.preventDefault();
+        const myForm = this.filterForm;
+        const rating = Number(myForm.current[1].value);
+        const priceLevel = Number(myForm.current[0].value);
+        const oldArray = this.state.originalArray;
+        this.setState({originalArray: oldArray.filter(item => (item.rating>= rating && item.price_level >= priceLevel))})
+    }
+
+    render(){
+        const result = this.props.result;
+        return(
+            <>  
+            <button onClick={this.loadResult}>Load result</button>
+        <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
+            <input type="text" name="priceLevel" placeholder="price level"/>
+            <label htmlFor="price-level"></label>
+            <input type="text" name="rating" placeholder="rating"/>
+            <label htmlFor="rating"></label>
+            <button type="submit">Filter</button>
+        </form>
+
+            {this.state.originalArray.map(item=>{
                 return(
                     <>
-                        
-                        <div className="result__card">
-                            <p>{item.name}</p>
-                            {(item.price_level) ? <p>{`price level: ${item.price_level}`}</p> : <p>price level unavailable</p>}
-                            {(item.rating) ? <p>{`rating: ${item.rating}`}</p> : <p>rating unavailable</p>}
-                            <p>{item.vicinity}</p>
-                        </div>
+                            <div className="result__card">
+                                <p>{item.name}</p>
+                                {(item.price_level) ? <p>{`price level: ${item.price_level}`}</p> : <p>price level unavailable</p>}
+                                {(item.rating) ? <p>{`rating: ${item.rating}`}</p> : <p>rating unavailable</p>}
+                                <p>{item.vicinity}</p>
+                            </div>
                     </>
                 )
             })}
         </>
     )
-}
+}}
+    
 
 export default Result;
