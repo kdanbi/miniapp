@@ -1,18 +1,21 @@
 import React from 'react';
-import Main from './components/Main';
-import Result from './components/Result';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.scss';
+import Home from './pages/Home/Home';
+import Results from './pages/Results/Results';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <BrowserRouter>
         <header className="App__header">
           <h3 className="App__header--logo">RUB</h3>
         </header>
-        <Main />
-        <Result />
-      </div>
+        <Switch>
+          <Route path="/"  exact component={Home}/>
+          <Route path="/" component={Results}/>
+        </Switch>
+      </BrowserRouter>
   );
 }
 }

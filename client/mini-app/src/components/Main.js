@@ -1,32 +1,57 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../App.scss';
 import image from '../assets/hand.png';
 import axios from 'axios'
-
-const baseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
+import './Main.scss';
 
 class Main extends React.Component {
 
+    state = {
+        location: '',
+        listOfRubs: [],
+        display: false
+    }
+
+    locationField = React.createRef();
+
+    componentDidMount(){
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                
+                this.setState({
+                    location: `${position.coords.latitude}, ${position.coords.longitude}`
+                })
+            }
+        )
+    }
+
     getResults =(event)=>{
         event.preventDefault();
-        const location = event.target.address.value;
-
-        axios.get(`${baseUrl}location=${location}&rankby=distance&type=restaurant&key=AIzaSyC2DtGQafS7ey_uIJHawxlOx1QrsGF55qs`)
-            .then(result => console.log(result)
+    
+        axios.post(`http://localhost:8080`, {location: this.state.location})
+            .then(result => this.setState({listOfRubs: result.data})
             )
+
+        this.locationField.current.address.value = this.state.location;
         
     }
+
+    displayResult=()=>{
+        this.setState({display: true})
+    }
+
     render () {
         return (
             <section className="mainPage">
-                <h1 className="mainPage__hero">Only if you have a date</h1>
-                <form className="mainPage__form" onSubmit={this.getResults}>
-                    <input className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
-                    <button className="mainPage__form--button" type="submit" name="button"><img src={image} alt="hand"/>RUB</button>
+                <h1 className="mainPage__hero">Ready to RUB?</h1>
+                <form ref={this.locationField} className="mainPage__form" onSubmit={this.getResults}>
+                    <input  className="mainPage__form--input" type="text" name="address" placeholder="Enter your location here"/>
+                    <button className="mainPage__form--button" type="submit" name="button"><img className="mainPage__hand" src={image} alt="hand"/></button>
                 </form>
+                {this.state.listOfRubs.length > 0? (<Link to={{"pathname":"/results", state:{result:this.state.listOfRubs}}}><button onClick={this.displayResult}>View Result</button></Link>) : null}
             </section>
         )
     }
 }
-
 export default Main;
