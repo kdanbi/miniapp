@@ -7,7 +7,7 @@ export default class Results extends Component{
     }
 
     componentDidMount(){
-        this.setState({results: this.props.history.location.state.result})
+        this.setState({results: this.props.history.location.state.result});
     }
 
     render(){
