@@ -76,7 +76,7 @@ class Main extends React.Component {
           </Link>
           <div
           className="map-container"
-          style={{ height: "30vh", width: "60%" }}
+          style={{ height: "28vh", width: "60%" }}
         >
           <MainMap map={{ lat: lat, lng: lng, text: "MY LOCATION" }} />
         </div>

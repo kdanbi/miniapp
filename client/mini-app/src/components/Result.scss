@@ -12,20 +12,21 @@
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
 .result{
-    &__card{
     &__card:hover {
         animation: shake 0.4s; 
         animation-iteration-count: infinite; 
     }
+    &__card{
     padding-top: 10px;
     background: white;
     color: black;
     border: 1px solid;
-    width: 19rem;
-    height: 18rem;
-    margin: 1rem;
+    width: 20rem;
+    height: 19rem;
+    margin: 0.5rem;
     display: inline-block;
     font-size: 1rem;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     &--name, &--rating, &--price, &--address {
         text-align: center;
     }

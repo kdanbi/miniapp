@@ -10,7 +10,7 @@ class MainMap extends Component {
     const center = {lat, lng};
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '60vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyC2DtGQafS7ey_uIJHawxlOx1QrsGF55qs' }}
           defaultCenter={center}

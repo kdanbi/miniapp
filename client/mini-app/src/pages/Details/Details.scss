@@ -1,0 +1,18 @@
+.result {
+    border: 1px white solid;
+    width: 30rem;
+    height: 25rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    &__card {
+        &--name {
+            font-size: 3rem;
+            margin-bottom: 0;
+        }
+    }
+}

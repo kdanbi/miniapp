@@ -29,7 +29,7 @@ class Result extends Component {
         const result = this.props.result;
         return(
             <>  
-            <button onClick={this.loadResult}>Load result</button>
+            <button className="loadButton" onClick={this.loadResult}>RUB</button>
         <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
             <input type="text" name="priceLevel" placeholder="price level"/>
             <label htmlFor="price-level"></label>
@@ -55,5 +55,4 @@ class Result extends Component {
     )
 }}
     
-
 export default Result;

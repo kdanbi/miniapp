@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import DetailsMap from "../../components/DetailsMap/DetailsMap";
+import './Details.scss';
+ 
 
 class Details extends Component {
   state = {
@@ -34,7 +36,7 @@ class Details extends Component {
     const text = joint.name;
 
     return (
-      <div>
+      <div className="result">
         <p className="result__card--name">{joint.name}</p>
         {joint.price_level ? (
           <p className="result__card--price">{`price level: ${
