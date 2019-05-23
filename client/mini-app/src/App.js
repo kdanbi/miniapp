@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import './App.scss';
 import Home from './pages/Home/Home';
 import Results from './pages/Results/Results';
@@ -9,7 +9,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <header className="App__header">
-          <h3 className="App__header--logo">RUB</h3>
+          <Link to="/">
+            <h3 className="App__header--logo">RUB</h3>
+          </Link>
         </header>
         <Switch>
           <Route path="/"  exact component={Home}/>
