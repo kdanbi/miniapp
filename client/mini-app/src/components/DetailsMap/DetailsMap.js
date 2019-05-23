@@ -3,11 +3,10 @@ import GoogleMapReact from 'google-map-react';
  
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
-class MainMap extends Component {
+class DetailsMap extends Component {
  
   render() {
-    const {lat, lng, text} = this.props.map;
-    const center = {lat, lng};
+    const {lat, lng, text, center} = this.props.map;
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
@@ -27,4 +26,4 @@ class MainMap extends Component {
   }
 }
  
-export default MainMap;
+export default DetailsMap;

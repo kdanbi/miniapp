@@ -40,7 +40,7 @@ class Result extends Component {
 
             {this.state.originalArray.map(item=>{
                 return(
-                    <>
+                    <Link to={`/details/${item.place_id}`}>
                         
                         <div className="result__card">
                             <p className="result__card--name">{item.name}</p>
@@ -48,7 +48,7 @@ class Result extends Component {
                             {(item.rating) ? <p className="result__card--rating">{`rating: ${item.rating}`}</p> : <p className="result__card--rating">rating unavailable</p>}
                             <p className="result__card--address">{item.vicinity}</p>
                         </div>
-                    </>
+                    </Link>
                 )
             })}
         </>
