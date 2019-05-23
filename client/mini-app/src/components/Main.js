@@ -4,7 +4,7 @@ import "../App.scss";
 import image from "../assets/hand.png";
 import axios from "axios";
 import "./Main.scss";
-import SimpleMap from "./SimpleMap/SimpleMap";
+import MainMap from "./MainMap/MainMap";
 let lat = "";
 let lng = "";
 
@@ -78,7 +78,7 @@ class Main extends React.Component {
           className="map-container"
           style={{ height: "30vh", width: "60%" }}
         >
-          <SimpleMap map={{ lat: lat, lng: lng, text: "MY LOCATION" }} />
+          <MainMap map={{ lat: lat, lng: lng, text: "MY LOCATION" }} />
         </div>
           </>
         ) : null}
