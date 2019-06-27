@@ -9,7 +9,6 @@ class Result extends Component {
         stateSet: false
     }
 
-
     filterForm = React.createRef();
 
     loadResult=()=>{
@@ -30,18 +29,17 @@ class Result extends Component {
         return(
             <>  
             <button className="loadButton" onClick={this.loadResult}>RUB</button>
-        <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
-            <input type="text" name="priceLevel" placeholder="price level"/>
-            <label htmlFor="price-level"></label>
-            <input type="text" name="rating" placeholder="rating"/>
-            <label htmlFor="rating"></label>
-            <button type="submit">Filter</button>
-        </form>
+            <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
+                <input type="text" name="priceLevel" placeholder="price level"/>
+                <label htmlFor="price-level"></label>
+                <input type="text" name="rating" placeholder="rating"/>
+                <label htmlFor="rating"></label>
+                <button type="submit">Filter</button>
+            </form>
 
             {this.state.originalArray.map(item=>{
                 return(
                     <Link to={`/details/${item.place_id}`}>
-                        
                         <div className="result__card">
                             <p className="result__card--name">{item.name}</p>
                             {(item.price_level) ? <p className="result__card--price">{`price level: ${item.price_level}`}</p> : <p className="result__card--price"></p>}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import '../../pages/Details/Details.scss'
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
