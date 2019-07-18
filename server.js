@@ -34,5 +34,7 @@ app.get('/getImage/:imageRef', (req, res) => {
 })
 
 
-
-app.listen(8080, console.log('server listening on 8080'));
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log('server listening on 8080')
+})
