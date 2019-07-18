@@ -31,7 +31,7 @@ class Main extends React.Component {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:8080`, { location: this.state.location })
+      .post(`https://whatthefrank.herokuapp.com/`, { location: this.state.location })
       .then(result => this.setState({ listOfRubs: result.data }));
 
     this.locationField.current.address.value = this.state.location;
