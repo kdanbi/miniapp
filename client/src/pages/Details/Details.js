@@ -25,7 +25,7 @@ class Details extends Component {
 
   componentDidMount() {
     axios
-      .post(`https://whatthefrank.herokuapp.com/details/${this.props.match.params.place_id}`)
+      .post(`https://whattheforkfrank.herokuapp.com/details/${this.props.match.params.place_id}`)
       .then(result => this.setState({ data: result.data, location:result.data.geometry.location}));
   }
 
