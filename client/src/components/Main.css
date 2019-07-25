@@ -1,0 +1,239 @@
+body {
+  background: white;
+  font-family: 'PT Sans Caption', sans-serif;
+  margin: 1rem;
+}
+
+.map-container {
+  display: none;
+}
+
+.mainPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.mainPage__hero {
+  color: white;
+  font-size: 8rem;
+}
+
+.mainPage__form--button {
+  background: #D80000;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.mainPage__hand:hover {
+  -webkit-animation: shake 0.4s;
+          animation: shake 0.4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.mainPage__form--input {
+  display: none;
+}
+
+.filter-and-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter-and-cards form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.filter-and-cards form input {
+  background-color: #fff;
+  color: #666;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+  width: 124px;
+  padding: 16px 36px 22px;
+}
+
+.guy {
+  width: 100px;
+  margin-bottom: 40px;
+  margin-left: 45px;
+}
+
+.filter-and-button {
+  margin-right: 200px;
+  margin-top: 20%;
+}
+
+.result__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50vw;
+}
+
+.result__card {
+  padding-top: 10px;
+  background: white;
+  color: black;
+  width: 13rem;
+  height: 13rem;
+  margin: 0.5rem;
+  display: inline-block;
+  font-size: 0.5rem;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.result__card--name, .result__card--rating, .result__card--price, .result__card--address {
+  text-align: center;
+}
+
+.result__card:after {
+  content: '';
+  display: block;
+  height: 7px;
+  width: 100%;
+  background-image: repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-top: 1px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-size: 7px 7px;
+}
+
+.result__card:hover {
+  background-color: #666;
+  color: #fff;
+  border-color: #000;
+}
+
+.result__card:hover:after {
+  background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+  border-top: 1px solid #000;
+  -webkit-animation: stripe-slide 12s infinite linear forwards;
+          animation: stripe-slide 12s infinite linear forwards;
+}
+
+.loadButton {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: darkred;
+  font-size: 0.5rem;
+}
+
+@-webkit-keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes stripe-slide {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.btn {
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  -moz-user-select: text;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 16px 36px 22px;
+  background-color: #fff;
+  color: #666;
+  border: 2px solid #666;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.btn:-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.btn--stripe {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn--stripe:after {
+  content: '';
+  display: block;
+  height: 7px;
+  width: 100%;
+  background-image: repeating-linear-gradient(45deg, #666, #666 1px, transparent 2px, transparent 5px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-top: 1px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-size: 7px 7px;
+}
+
+.btn--stripe:hover {
+  background-color: #666;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn--stripe:hover:after {
+  background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
+  border-top: 1px solid #000;
+  -webkit-animation: stripe-slide 12s infinite linear forwards;
+          animation: stripe-slide 12s infinite linear forwards;
+}
+
+.btn--large {
+  width: 50%;
+}
+
+.btn--radius {
+  border-radius: 36px;
+}
+/*# sourceMappingURL=Main.css.map */

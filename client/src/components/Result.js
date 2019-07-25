@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Result.scss'
+import './Main.scss'
 import {Link} from 'react-router-dom';
+import guy from "../assets/guy.png"
 
 class Result extends Component {
     state={
@@ -13,6 +15,7 @@ class Result extends Component {
 
     loadResult=()=>{
         this.setState({originalArray: this.props.result});
+        console.log(this.state.originalArray)
     }
 
     filterResult =(event)=>{
@@ -25,31 +28,36 @@ class Result extends Component {
     }
 
     render(){
-        const result = this.props.result;
+        //const result = this.props.result;
         return(
-            <>  
-            <button className="loadButton" onClick={this.loadResult}>RUB</button>
-            <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
-                <input type="text" name="priceLevel" placeholder="price level"/>
-                <label htmlFor="price-level"></label>
-                <input type="text" name="rating" placeholder="rating"/>
-                <label htmlFor="rating"></label>
-                <button type="submit">Filter</button>
-            </form>
+            <section className="filter-and-cards">  
+                <div className="filter-and-button">
+                <img className="guy "src={guy} alt="guy"/>
+                    <button className="loadButton btn btn--stripe btn--radius" onClick={this.loadResult}>Find NOW</button>
+                    <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
+                        <input type="text" name="priceLevel" placeholder="price level"/>
+                        <label htmlFor="price-level"></label>
+                        <input type="text" name="rating" placeholder="rating"/>
+                        <label htmlFor="rating"></label>
+                        <button className="loadButton btn btn--stripe btn--radius" type="submit">Filter</button>
+                    </form>
+                </div>
 
-            {this.state.originalArray.map(item=>{
-                return(
-                    <Link to={`/details/${item.place_id}`}>
-                        <div className="result__card">
-                            <p className="result__card--name">{item.name}</p>
-                            {(item.price_level) ? <p className="result__card--price">{`price level: ${item.price_level}`}</p> : <p className="result__card--price"></p>}
-                            {(item.rating) ? <p className="result__card--rating">{`rating: ${item.rating}`}</p> : <p className="result__card--rating">rating unavailable</p>}
-                            <p className="result__card--address">{item.vicinity}</p>
-                        </div>
-                    </Link>
-                )
-            })}
-        </>
+                <div className="result__cards">
+                {this.state.originalArray.map(item=>{
+                    return(
+                        <Link to={`/details/${item.place_id}`}>
+                            <div className="result__card">
+                                <p className="result__card--name">{item.name}</p>
+                                {/* {(item.price_level) ? <p className="result__card--price">{`price level: ${item.price_level}`}</p> : <p className="result__card--price"></p>}
+                                {(item.rating) ? <p className="result__card--rating">{`rating: ${item.rating}`}</p> : <p className="result__card--rating">rating unavailable</p>}
+                                <p className="result__card--address">{item.vicinity}</p> */}
+                            </div>
+                        </Link>
+                    )
+                })}
+                </div>
+        </section>
     )
 }}
     

@@ -52,11 +52,11 @@ class Details extends Component {
         )}
         <p className="result__card--address">{joint.formatted_address}</p>
         <p className="result__card--phone">{`Phone Number: ${joint.international_phone_number}`}</p>
-        {joint.website ? (<a href={joint.website} target="_blank">Visit web site</a>) : (
+        {joint.website ? (<a href={joint.website} >Visit web site</a>) : (
           <p className="result__card--price" />
         )}
         <button onClick={()=>this.loadMap()}>Load Map</button>
-        {this.state.loadMap==true? (<div
+        {this.state.loadMap===true? (<div
           className="map-container"
           style={{ height: "30vh", width: "60%" }}
         >
