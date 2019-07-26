@@ -35,9 +35,9 @@ class Result extends Component {
                 <img className="guy "src={guy} alt="guy"/>
                     <button className="loadButton btn btn--stripe btn--radius" onClick={this.loadResult}>Find NOW</button>
                     <form action="" ref={this.filterForm} onSubmit={this.filterResult}>
-                        <input type="text" name="priceLevel" placeholder="price level"/>
+                        <input type="text" name="priceLevel" placeholder="price level (1 - 4)"/>
                         <label htmlFor="price-level"></label>
-                        <input type="text" name="rating" placeholder="rating"/>
+                        <input type="text" name="rating" placeholder="rating (1 - 4)"/>
                         <label htmlFor="rating"></label>
                         <button className="loadButton btn btn--stripe btn--radius" type="submit">Filter</button>
                     </form>
