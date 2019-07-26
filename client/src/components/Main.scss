@@ -18,9 +18,10 @@ body {
 }
 .mainPage {
     display: flex;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
+    height: 100%;
+    width: 100%;
+    //flex-direction: column;
+    //align-items: center;
     justify-content: flex-start;
     &__hero {
         color: white;
@@ -43,6 +44,7 @@ body {
 }
 .filter-and-cards {
     display: flex;
+    margin-left: 100px;
     form {
         display: flex;
         flex-direction: column;
@@ -56,14 +58,35 @@ body {
         }
     }
 }
+.filter-and-button {
+    input {
+        background-color: $btn-background;
+        color: $btn-color;
+        border: 1px solid lightgrey;
+        border-radius: 50px;
+        width: 124px;
+        padding: 16px 36px 22px;
+    }
+}
 .guy {
     width: 100px;
     margin-bottom: 40px;
-    margin-left: 45px;
 }
 .filter-and-button {
-    margin-right: 200px;
-    margin-top: 20%;
+    //margin-right: 200px;
+    //margin-top: 20%;
+    margin-left: 50px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .result{
@@ -71,14 +94,15 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 50vw;
+        width: 100%;
+        justify-content: flex-start;
     }
     &__card{
     padding-top: 10px;
     background: white;
     color: black;   
-    width: 13rem;
-    height: 13rem;
+    width: 10rem;
+    height: 10rem;
     margin: 0.5rem;
     display: inline-block;
     font-size: 0.5rem;
